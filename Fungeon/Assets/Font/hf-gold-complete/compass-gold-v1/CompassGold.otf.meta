@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: cc9014ad3355dae44bac3fff35ac7eef
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: CompassGold
+  fontNames:
+  - CompassGold
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: bbdb9cd1533f3a049b2d4b9215542219, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
