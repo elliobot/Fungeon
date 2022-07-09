@@ -36,6 +36,8 @@ public class Offence : MonoBehaviour
     public void superheroShirt()
     {
         GameManager.instance.offenceChance += 0.5f;
+        GameManager.instance.skillPoints -= 1;
+        
     }
     public void offenceRoll()
     {

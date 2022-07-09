@@ -11,11 +11,10 @@ public class GameManager : MonoBehaviour
    
     [Header("Money Settings")]
         public float moneyTotal = 0f;
-        public float clickPower = 1f;
-        public float clickMult = 1f;
-        public float CPS = 0f;
-        public float skillMult = 0f;
+        public float jokePower = 1f;
+        public float jokeMult = 1f;
         public float skeletonCount = 1f;
+        public float clickMult = 1f;
     
     [Header("Offence Settings")]
         public float offended = 0f;
@@ -35,9 +34,17 @@ public class GameManager : MonoBehaviour
         public float skillPoints = 0f;
         public float levelXP = 0f;
         public Slider XPSlider;
+        public Slider cooldownSlider;
+
+    [Header("Player Settings")]
+        public int skillCount = 0;
+        public int offenceCount = 0;
+        public int cleanCount = 0;
 
     [Header("Player Settings")]
         public GameObject player;
+        public float jokeSpeed = 1f;
+        public bool autoclickUpgrade = false;
 
     [Header("Sprite Settings")]
         public GameObject skeleton;
@@ -74,8 +81,8 @@ public class GameManager : MonoBehaviour
         if (elapsed >= 1f)
         {
             elapsed = elapsed % 1f;
-            moneyTotal += CPS * skillMult;
-            playerXP += (CPS* skillMult);
+            moneyTotal += skeletonCount*(jokePower * jokeMult);
+            playerXP += skeletonCount * (jokePower * jokeMult);
 
         }
     }

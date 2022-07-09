@@ -7,6 +7,7 @@ public class XPBar : MonoBehaviour
 {
 
     public TMP_Text levelText;
+    public float xpScaler = 1f;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +25,7 @@ public class XPBar : MonoBehaviour
             GameManager.instance.XPSlider.value = 0;
             GameManager.instance.playerLevel += 1;
             GameManager.instance.skillPoints += 1;
-            GameManager.instance.XPSlider.maxValue *= 2;
+            GameManager.instance.XPSlider.maxValue *= xpScaler;
             GameManager.instance.XPSlider.minValue = GameManager.instance.playerXP;
             levelText.text = "Level: " + GameManager.instance.playerLevel;
         }

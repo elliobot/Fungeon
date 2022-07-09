@@ -41,7 +41,20 @@ public class UpgradeButton : MonoBehaviour
     {
         if (GameManager.instance.moneyTotal >= upgradeCost)
         {
-            GameManager.instance.clickPower += clickUpgPower;
+            GameManager.instance.clickMult += clickUpgPower;
+            GameManager.instance.moneyTotal -= upgradeCost;
+
+            upgradeCost *= costMult;
+            upg1CostText.text = upgradeCost.ToString();
+
+
+        }
+    }
+    public void upgradeJokeSpeed()
+    {
+        if (GameManager.instance.moneyTotal >= upgradeCost)
+        {
+            GameManager.instance.jokeSpeed *= clickUpgPower;
             GameManager.instance.moneyTotal -= upgradeCost;
 
             upgradeCost *= costMult;
@@ -54,7 +67,6 @@ public class UpgradeButton : MonoBehaviour
     {
         if (GameManager.instance.moneyTotal >= upgradeCost)
         {
-            GameManager.instance.CPS += clickUpgPower;
             GameManager.instance.moneyTotal -= upgradeCost;
             GameManager.instance.skeletonCount += 1f;
 

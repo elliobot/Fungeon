@@ -17,15 +17,14 @@ public class SkillTreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     public string tooltipInfo;
     public TMP_Text tooltipText;
     public GameObject tooltipBody;
-    public GameObject skillArea;
+    public enum OffenceOrClean { Offensive, Nautral, Clean }
 
-
+    public OffenceOrClean OOC;
 
     // Update is called once per frame
     void Update()
     {
         tooltipText.text = tooltipInfo;
-        RectTransform rt = skillArea.GetComponent(typeof(RectTransform)) as RectTransform;
 
         if (neededSkill.isOn)
         {
@@ -48,24 +47,27 @@ public class SkillTreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
             thisSkill.interactable = false;
 
         }
-        rt.sizeDelta = new Vector2(0, 0 + (100*(GameManager.instance.playerLevel - GameManager.instance.skillPoints)));
+
     }
     public void notebook()
     {
-        GameManager.instance.skillMult += 0.5f;
+        GameManager.instance.jokeMult += 0.5f;
         unlocked = true;
+        GameManager.instance.skillCount++;
         GameManager.instance.skillPoints -= 1;
     }
     public void pencil()
     {
-        GameManager.instance.skillMult += 0.5f;
+        GameManager.instance.jokeMult += 0.5f;
         unlocked = true;
+        GameManager.instance.skillCount++;
         GameManager.instance.skillPoints -= 1;
     }
     public void eraser()
     {
-        GameManager.instance.clickMult += 1f;
+        GameManager.instance.jokeMult += 1f;
         unlocked = true;
+        GameManager.instance.skillCount++;
         GameManager.instance.skillPoints -= 1;
         
 
@@ -83,6 +85,13 @@ public class SkillTreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
         unlocked = true;
 
-
+        if (OOC == OffenceOrClean.Nautral)
+        {
+            GameManager.instance.cleanCount++;
+        }
+        else if (OOC == OffenceOrClean.Offensive)
+        {
+            GameManager.instance.offenceCount++;
+        }
     }
 }
