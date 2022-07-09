@@ -18,8 +18,8 @@ public class MainClick : MonoBehaviour
     }
     public void buttonPress()
     {
-        GameManager.instance.moneyTotal += GameManager.instance.clickPower;
-        GameManager.instance.playerXP += 100 ;
+        GameManager.instance.moneyTotal += (GameManager.instance.skeletonCount)*(GameManager.instance.clickPower * GameManager.instance.clickMult);
+        GameManager.instance.playerXP += ((GameManager.instance.skeletonCount) * (GameManager.instance.clickPower * GameManager.instance.clickMult));
 
     }
 

@@ -360,8 +360,13 @@
 -r:"Library/Bee/artifacts/500b0aE.dag/UnityEngine.UI.ref.dll"
 "Assets/Scripts/ButtonPressSettings.cs"
 "Assets/Scripts/GameManager.cs"
+"Assets/Scripts/jokeGenerate.cs"
 "Assets/Scripts/MainClick.cs"
+"Assets/Scripts/Offence.cs"
+"Assets/Scripts/RandomParticle.cs"
+"Assets/Scripts/SkillTree.cs"
 "Assets/Scripts/SkillTreeNode.cs"
+"Assets/Scripts/Tooltip.cs"
 "Assets/Scripts/UpgradeButton.cs"
 "Assets/Scripts/XPBar.cs"
 -langversion:9.0

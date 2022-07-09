@@ -12,9 +12,15 @@ public class GameManager : MonoBehaviour
     [Header("Money Settings")]
         public float moneyTotal = 0f;
         public float clickPower = 1f;
+        public float clickMult = 1f;
         public float CPS = 0f;
         public float skillMult = 0f;
-
+        public float skeletonCount = 1f;
+    
+    [Header("Offence Settings")]
+        public float offended = 0f;
+        public float offenceChance = 0f;
+        public Text offendedTextbox;
 
     [Header("Text Fields")]
         public Text moneyText;
@@ -49,6 +55,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         moneyText.text = moneyTotal.ToString();
+        offendedTextbox.text = offended.ToString();
 
         if (skillPoints > 0)
         {
@@ -68,7 +75,7 @@ public class GameManager : MonoBehaviour
         {
             elapsed = elapsed % 1f;
             moneyTotal += CPS * skillMult;
-            playerXP += ((CPS* skillMult) * 100);
+            playerXP += (CPS* skillMult);
 
         }
     }

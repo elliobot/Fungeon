@@ -2,9 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using TMPro;
 public class XPBar : MonoBehaviour
 {
-    
+
+    public TMP_Text levelText;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +26,7 @@ public class XPBar : MonoBehaviour
             GameManager.instance.skillPoints += 1;
             GameManager.instance.XPSlider.maxValue *= 2;
             GameManager.instance.XPSlider.minValue = GameManager.instance.playerXP;
+            levelText.text = "Level: " + GameManager.instance.playerLevel;
         }
     }
 }

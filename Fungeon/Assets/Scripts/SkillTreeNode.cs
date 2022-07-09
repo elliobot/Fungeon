@@ -2,21 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class SkillTreeNode : MonoBehaviour
+using UnityEngine.EventSystems;
+using UnityEngine.Events;
+
+using TMPro;
+
+
+
+public class SkillTreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public bool unlocked = false;
     public Toggle thisSkill;
     public Toggle neededSkill;
+    public string tooltipInfo;
+    public TMP_Text tooltipText;
+    public GameObject tooltipBody;
+    public GameObject skillArea;
 
-    // Start is called before the first frame update
-    void Start()
-    {
 
-    }
 
     // Update is called once per frame
     void Update()
     {
+        tooltipText.text = tooltipInfo;
+        RectTransform rt = skillArea.GetComponent(typeof(RectTransform)) as RectTransform;
 
         if (neededSkill.isOn)
         {
@@ -39,6 +48,7 @@ public class SkillTreeNode : MonoBehaviour
             thisSkill.interactable = false;
 
         }
+        rt.sizeDelta = new Vector2(0, 0 + (100*(GameManager.instance.playerLevel - GameManager.instance.skillPoints)));
     }
     public void notebook()
     {
@@ -46,10 +56,33 @@ public class SkillTreeNode : MonoBehaviour
         unlocked = true;
         GameManager.instance.skillPoints -= 1;
     }
-    public void pen()
+    public void pencil()
     {
         GameManager.instance.skillMult += 0.5f;
         unlocked = true;
         GameManager.instance.skillPoints -= 1;
+    }
+    public void eraser()
+    {
+        GameManager.instance.clickMult += 1f;
+        unlocked = true;
+        GameManager.instance.skillPoints -= 1;
+        
+
+    }
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        tooltipBody.SetActive(true);
+    }
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        tooltipBody.SetActive(false);
+    }
+    public void unlock()
+    {
+
+        unlocked = true;
+
+
     }
 }

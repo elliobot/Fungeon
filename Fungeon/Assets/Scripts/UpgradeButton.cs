@@ -13,14 +13,12 @@ public class UpgradeButton : MonoBehaviour
     public float costMult = 2;
     public float clickUpgPower = 1;
     public Text upg1CostText;
-    public Text upg2CostText;
     public Transform parentGameObj;
 
     // Start is called before the first frame update
     void Start()
     {
         upg1CostText.text = upgradeCost.ToString();
-        upg2CostText.text = upgradeCost.ToString();
 
     }
 
@@ -58,9 +56,10 @@ public class UpgradeButton : MonoBehaviour
         {
             GameManager.instance.CPS += clickUpgPower;
             GameManager.instance.moneyTotal -= upgradeCost;
+            GameManager.instance.skeletonCount += 1f;
 
             upgradeCost *= costMult;
-            upg2CostText.text = upgradeCost.ToString();
+            upg1CostText.text = upgradeCost.ToString();
             float randY = Random.Range(-0.2f, -0.7f);
             var position = new Vector3(Random.Range(-1.4f, 1.6f), randY, randY);
             var newSkele = Instantiate(GameManager.instance.skeleton, position, Quaternion.identity);

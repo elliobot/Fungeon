@@ -58,10 +58,15 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\MainClick.cs" />
+    <Compile Include="Assets\Scripts\Tooltip.cs" />
     <Compile Include="Assets\Scripts\UpgradeButton.cs" />
     <Compile Include="Assets\Scripts\ButtonPressSettings.cs" />
+    <Compile Include="Assets\Scripts\SkillTree.cs" />
     <Compile Include="Assets\Scripts\SkillTreeNode.cs" />
     <Compile Include="Assets\Scripts\XPBar.cs" />
+    <Compile Include="Assets\Scripts\RandomParticle.cs" />
+    <Compile Include="Assets\Scripts\Offence.cs" />
+    <Compile Include="Assets\Scripts\jokeGenerate.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
