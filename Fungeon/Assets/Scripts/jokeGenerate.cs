@@ -70,7 +70,7 @@ public class jokeGenerate : MonoBehaviour
                 jokeFinal = "...This reminds me of " + nouns[randRoll].ToString() + ".";
                 break;
             case 13:
-                jokeFinal = "I've been thinking a lot about " + nouns[randRoll].ToString() + ".";
+                jokeFinal = "I've been thinking a lot about " + nouns[randRoll].ToString() + "s.";
                 break;
             case 14:
                 randRoll2 = rand.Next(1, 6801);

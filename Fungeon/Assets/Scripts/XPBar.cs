@@ -27,7 +27,7 @@ public class XPBar : MonoBehaviour
             GameManager.instance.skillPoints += 1;
             GameManager.instance.XPSlider.maxValue *= xpScaler;
             GameManager.instance.XPSlider.minValue = GameManager.instance.playerXP;
-            levelText.text = "Level: " + GameManager.instance.playerLevel;
+            levelText.text = "LVL: " + GameManager.instance.playerLevel;
         }
     }
 }

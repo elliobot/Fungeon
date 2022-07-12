@@ -67,6 +67,8 @@
     <Compile Include="Assets\Scripts\RandomParticle.cs" />
     <Compile Include="Assets\Scripts\Offence.cs" />
     <Compile Include="Assets\Scripts\jokeGenerate.cs" />
+    <Compile Include="Assets\Scripts\spriteSwap.cs" />
+    <Compile Include="Assets\Scripts\OffenceUpgrades.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
