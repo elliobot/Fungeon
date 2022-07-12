@@ -72,10 +72,12 @@ public class UpgradeButton : MonoBehaviour
 
             upgradeCost *= costMult;
             upg1CostText.text = upgradeCost.ToString();
-            float randY = Random.Range(-0.2f, -0.7f);
+            float randY = Random.Range(-0.7f, -1f);
             var position = new Vector3(Random.Range(-1.4f, 1.6f), randY, randY);
             var newSkele = Instantiate(GameManager.instance.skeleton, position, Quaternion.identity);
             newSkele.transform.parent = parentGameObj;
+            newSkele.transform.localScale = new Vector3(1, 1, 1);
+
         }
     }
 }

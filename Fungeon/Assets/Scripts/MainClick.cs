@@ -9,9 +9,14 @@ public class MainClick : MonoBehaviour
     public Button mainClickButton;
     public jokeGenerate jokebox;
     public Offence offenceScript;
+    public GameObject player;
+    private SpriteRenderer playerSprite;
+    public Sprite openMouth;
+    public Sprite closedMouth;
 // Start is called before the first frame update
     void Start()
     {
+       playerSprite = player.GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -21,6 +26,7 @@ public class MainClick : MonoBehaviour
 
         if (!mainClickButton.interactable)
         {
+            playerSprite.sprite = openMouth;
             elapsed += Time.deltaTime;
 
             GameManager.instance.cooldownSlider.value = GameManager.instance.jokeSpeed - elapsed;
@@ -38,6 +44,11 @@ public class MainClick : MonoBehaviour
                     offenceScript.offenceRoll();
                 }
             }
+
+        }
+        else
+        {
+            playerSprite.sprite = closedMouth;
 
         }
     }

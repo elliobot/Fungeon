@@ -10,9 +10,19 @@ public class RandomParticle : MonoBehaviour
     public ParticleSystem laugh2;
     public ParticleSystem laugh3;
     public ParticleSystem laugh4;
+    public Sprite haha1;
+    public Sprite haha2;
+    public GameObject spritenpc;
+    private SpriteRenderer spriteRend;
     float elapsed = 0;
     System.Random rand = new System.Random();
     int choice = 0;
+
+    void Start()
+    {
+        spriteRend = spritenpc.GetComponent<SpriteRenderer>();
+
+    }
 
     // Update is called once per frame
     void Update()
@@ -26,6 +36,8 @@ public class RandomParticle : MonoBehaviour
             elapsed = elapsed % 1f;
             if (choice == 0)
             {
+                spriteRend.sprite = haha2;
+
                 laugh1.Play();
                 laugh2.Stop();
                 laugh3.Stop();
@@ -33,6 +45,8 @@ public class RandomParticle : MonoBehaviour
             }
             else if (choice == 1)
             {
+                spriteRend.sprite = haha2;
+
                 laugh1.Stop();
                 laugh2.Play();
                 laugh3.Stop();
@@ -40,6 +54,8 @@ public class RandomParticle : MonoBehaviour
             }
             else if (choice == 2)
             {
+                spriteRend.sprite = haha1;
+
                 laugh1.Stop();
                 laugh2.Stop();
                 laugh3.Play();
@@ -47,11 +63,14 @@ public class RandomParticle : MonoBehaviour
             }
             else if (choice == 3)
             {
+                spriteRend.sprite = haha1;
+
                 laugh1.Stop();
                 laugh2.Stop();
                 laugh3.Stop();
                 laugh4.Play();
             }
         }
+        
     }
 }
