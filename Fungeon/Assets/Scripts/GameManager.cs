@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -19,10 +19,10 @@ public class GameManager : MonoBehaviour
     [Header("Offence Settings")]
         public float offended = 0f;
         public float offenceChance = 0f;
-        public Text offendedTextbox;
+        public TMP_Text offendedTextbox;
 
     [Header("Text Fields")]
-        public Text moneyText;
+        public TMP_Text moneyText;
         public Text skillPointsText;
         public Text upgrade1Text;
         public Text upgrade2Text;
@@ -61,7 +61,15 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        moneyText.text = moneyTotal.ToString();
+        if (moneyTotal >= 10000000)
+        {
+            moneyText.text = (Mathf.Round(moneyTotal * 100) / 100).ToString("G3");
+        }
+        else
+        {
+            moneyText.text = moneyTotal.ToString();
+        }
+
         offendedTextbox.text = offended.ToString();
 
         if (skillPoints > 0)
