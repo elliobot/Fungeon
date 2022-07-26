@@ -69,6 +69,9 @@
     <Compile Include="Assets\Scripts\RandomParticle.cs" />
     <Compile Include="Assets\Scripts\Offence.cs" />
     <Compile Include="Assets\Scripts\jokeGenerate.cs" />
+    <Compile Include="Assets\Scripts\PinToSafeArea.cs" />
+    <Compile Include="Assets\CrystalFramework\Utility\SafeArea.cs" />
+    <Compile Include="Assets\CrystalFramework\Utility\Demos\SafeAreaDemo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -86,6 +89,7 @@
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
+    <None Include="Assets\CrystalFramework\Utility\Demos\SafeAreaDemo.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
