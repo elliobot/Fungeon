@@ -41,4 +41,12 @@ public class SkillTree : MonoBehaviour
             rt.sizeDelta = new Vector2(0, 483 + (50 * (GameManager.instance.skillCount)));
         }
     }
+    public void openmenu()
+    {
+        this.transform.localScale = new Vector3(1, 1, 1);
+    }
+    public void closemenu()
+    {
+        this.transform.localScale = new Vector3(0,0,0);
+    }
 }

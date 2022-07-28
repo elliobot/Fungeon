@@ -26,6 +26,11 @@ public class SkillTreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     {
         tooltipText.text = tooltipInfo;
 
+        unlocked = GameManager.instance.skillTree[int.Parse(thisSkill.name)];
+        thisSkill.isOn = GameManager.instance.skillTree[int.Parse(thisSkill.name)];
+
+
+
         if (neededSkill.isOn)
         {
             thisSkill.transform.localScale = new Vector3 (3.3f, 3.3f, 3.3f);
@@ -53,6 +58,7 @@ public class SkillTreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     {
         GameManager.instance.jokeMult += 0.5f;
         unlocked = true;
+        GameManager.instance.skillTree[0] = true;
         GameManager.instance.skillCount++;
         GameManager.instance.skillPoints -= 1;
     }
@@ -60,6 +66,7 @@ public class SkillTreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     {
         GameManager.instance.jokeMult += 0.5f;
         unlocked = true;
+        GameManager.instance.skillTree[1] = true;
         GameManager.instance.skillCount++;
         GameManager.instance.skillPoints -= 1;
     }
@@ -67,6 +74,7 @@ public class SkillTreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     {
         GameManager.instance.jokeMult += 1f;
         unlocked = true;
+        GameManager.instance.skillTree[2] = true;
         GameManager.instance.skillCount++;
         GameManager.instance.skillPoints -= 1;
         

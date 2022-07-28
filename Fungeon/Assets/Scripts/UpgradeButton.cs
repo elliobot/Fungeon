@@ -9,22 +9,47 @@ public class UpgradeButton : MonoBehaviour
     [Header("Button Settings")]
 
     public Button thisButton;
-    public float upgradeCost = 10;
     public float costMult = 2;
     public float clickUpgPower = 1;
     public Text upg1CostText;
-    public Transform parentGameObj;
-
+    private float upgradeCost;
     // Start is called before the first frame update
     void Start()
     {
+        if (this.name == "click1")
+        {
+            upgradeCost = GameManager.instance.click1;
+
+        }
+        else if (this.name == "click2")
+        {
+            upgradeCost = GameManager.instance.click2;
+        }
+        else if (this.name == "skel1")
+        {
+            upgradeCost = GameManager.instance.skel1;
+        }
         upg1CostText.text = upgradeCost.ToString();
-
+    
     }
-
     // Update is called once per frame
     void Update()
     {
+
+        if (this.name == "click1")
+        {
+            upgradeCost = GameManager.instance.click1;
+
+        }
+        else if (this.name == "click2")
+        {
+            upgradeCost = GameManager.instance.click2;
+        }
+        else if (this.name == "skel1")
+        {
+            upgradeCost = GameManager.instance.skel1;
+        }
+
         upgradeCost = Mathf.Round(upgradeCost * 100f) / 100f;
         if (GameManager.instance.moneyTotal >= upgradeCost)
         {
@@ -36,6 +61,8 @@ public class UpgradeButton : MonoBehaviour
 
         }
 
+
+        upg1CostText.text = upgradeCost.ToString();
     }
     public void UpgradeClick()
     {
@@ -45,7 +72,7 @@ public class UpgradeButton : MonoBehaviour
             GameManager.instance.moneyTotal -= upgradeCost;
 
             upgradeCost *= costMult;
-            upg1CostText.text = upgradeCost.ToString();
+            GameManager.instance.click1 = upgradeCost;
 
 
         }
@@ -58,8 +85,7 @@ public class UpgradeButton : MonoBehaviour
             GameManager.instance.moneyTotal -= upgradeCost;
 
             upgradeCost *= costMult;
-            upg1CostText.text = upgradeCost.ToString();
-
+            GameManager.instance.click2 = upgradeCost;
 
         }
     }
@@ -71,13 +97,10 @@ public class UpgradeButton : MonoBehaviour
             GameManager.instance.skeletonCount += 1f;
 
             upgradeCost *= costMult;
-            upg1CostText.text = upgradeCost.ToString();
-            float randY = Random.Range(0.04f, -0.17f);
-            var position = new Vector3(Random.Range(-1.5f, 1.5f), randY, randY);
-            var newSkele = Instantiate(GameManager.instance.skeleton, position, Quaternion.identity);
-            newSkele.transform.parent = parentGameObj;
-            newSkele.transform.localScale = new Vector3(1, 1, 1);
+            GameManager.instance.skel1 = upgradeCost;
 
+            GameManager.instance.CreateSkeleton();
         }
     }
+
 }

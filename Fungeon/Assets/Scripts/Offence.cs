@@ -35,16 +35,18 @@ public class Offence : MonoBehaviour
     }
     public void superheroShirt()
     {
-        GameManager.instance.offenceChance += 0.5f;
+        GameManager.instance.skilloffenceChance += 0.5f;
         GameManager.instance.skillPoints -= 1;
-        
+        GameManager.instance.skillTree[6] = true;
+
+
     }
     public void offenceRoll()
     {
 
         randRoll = rand.Next(1, 1000);
 
-        if (randRoll <= GameManager.instance.offenceChance * 10)
+        if (randRoll <= (GameManager.instance.offenceChance + GameManager.instance.skilloffenceChance) * 10)
         {
             boosnCheers.GetComponent<RandomParticle>().enabled = true;
 
@@ -52,5 +54,5 @@ public class Offence : MonoBehaviour
         }
         
     }
-    
+
 }
