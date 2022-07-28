@@ -5,6 +5,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 public static class SaveSystem 
 {
+    
     public static void SavePlayer (GameManager player)
     {
         BinaryFormatter formatter = new BinaryFormatter();
@@ -22,7 +23,7 @@ public static class SaveSystem
     {
 
         string path = Application.persistentDataPath + "/player.death";
-
+        
         if (File.Exists(path))
         {
             BinaryFormatter formatter = new BinaryFormatter();
@@ -40,4 +41,5 @@ public static class SaveSystem
         }
         
     }
+    
 }

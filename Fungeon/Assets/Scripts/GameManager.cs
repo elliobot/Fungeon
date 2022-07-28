@@ -63,6 +63,8 @@ public class GameManager : MonoBehaviour
         public GameObject skillupgrades;
         public GameObject offskillupgrades;
 
+    [Header("Save Settings")]
+        public GameObject savedText;
 
     float elapsed = 0;
 
@@ -115,6 +117,7 @@ public class GameManager : MonoBehaviour
     public void SavePlayer()
     {
         SaveSystem.SavePlayer(this);
+        StartCoroutine(ToggleSavedText(1));
     }
     public void LoadPlayer()
     {
@@ -227,19 +230,15 @@ public class GameManager : MonoBehaviour
         skills1.transform.localScale = new Vector3(0, 0, 0);
         skills2.transform.localScale = new Vector3(0, 0, 0);
     }
-    public void secondTick(float a)
+    public IEnumerator ToggleSavedText(float delay)
     {
-        float elapsed = 0;
-        while (elapsed < a)
-        {
-            elapsed += Time.deltaTime;
+        
+            yield return new WaitForSeconds(delay);
+            savedText.SetActive(true);
 
-            if (elapsed >= a)
-            {
-                return;
-
-            }
-        }
+            yield return new WaitForSeconds(delay);
+            savedText.SetActive(false);
+        
     }
     public void resetXPBar()
     {
