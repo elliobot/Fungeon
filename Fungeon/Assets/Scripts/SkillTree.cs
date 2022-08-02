@@ -27,18 +27,18 @@ public class SkillTree : MonoBehaviour
         if (OOC == OffenceOrClean.Offensive)
         {
             skillpointText.text = "Skill Points: " + GameManager.instance.skillPoints.ToString();
-            rt.sizeDelta = new Vector2(0, 483 + (50 * (GameManager.instance.offenceCount)));
+            rt.sizeDelta = new Vector2(0, 483 + (100 * (GameManager.instance.offenceCount)));
         }
         else if (OOC == OffenceOrClean.Clean)
         {
             skillpointText.text = "Skill Points: " + GameManager.instance.skillPoints.ToString();
-            rt.sizeDelta = new Vector2(0, 483 + (50 * (GameManager.instance.cleanCount)));
+            rt.sizeDelta = new Vector2(0, 483 + (100 * (GameManager.instance.cleanCount)));
         }
         else
         {
 
             skillpointText.text = "Skill Points: " + GameManager.instance.skillPoints.ToString();
-            rt.sizeDelta = new Vector2(0, 483 + (50 * (GameManager.instance.skillCount)));
+            rt.sizeDelta = new Vector2(0, 483 + (100 * (GameManager.instance.skillCount)));
         }
     }
     public void openmenu()

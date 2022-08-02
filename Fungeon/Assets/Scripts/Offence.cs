@@ -38,7 +38,8 @@ public class Offence : MonoBehaviour
         GameManager.instance.skilloffenceChance += 0.5f;
         GameManager.instance.skillPoints -= 1;
         GameManager.instance.skillTree[6] = true;
-
+        GameManager.instance.offended += Mathf.Round((GameManager.instance.awaytimeMins * 60) * ((GameManager.instance.offenceChance + GameManager.instance.skilloffenceChance)/100));
+    
 
     }
     public void offenceRoll()

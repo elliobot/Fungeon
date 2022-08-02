@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 [System.Serializable]
 
 public class playerData
@@ -20,9 +19,6 @@ public class playerData
     public float playerLevel;
     public float skillPoints;
     public float levelXP ;
-    public int skillCount;
-    public int offenceCount ;
-    public int cleanCount ;
     public float jokeSpeed;
     public bool autoclickUpgrade;
     public float click1;
@@ -31,9 +27,10 @@ public class playerData
     public float offChance1;
     public bool[] skillTree;
     public bool[] offskillTree;
-
+    public string saveDate; 
     public playerData (GameManager player)
     {
+
         moneyTotal = player.moneyTotal;
         jokePower = player.jokePower;
         skeletonCount = player.skeletonCount;
@@ -43,9 +40,7 @@ public class playerData
         minXP = player.minXP;
         maxXP = player.maxXP;
         playerLevel = player.playerLevel;
-        skillCount = player.skillCount;
-        offenceCount = player.offenceCount;
-        cleanCount = player.cleanCount;
+
         jokeSpeed = player.jokeSpeed;
         autoclickUpgrade = player.autoclickUpgrade;
         click1 = player.click1;
@@ -53,6 +48,7 @@ public class playerData
         skel1  = player.skel1;
         skillTree = player.skillTree;
         offskillTree = player.offskillTree;
+        saveDate = player.saveDate;
 
     }
 

@@ -18,6 +18,8 @@ public class XPBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        levelText.text = "LVL: " + GameManager.instance.playerLevel;
+
         GameManager.instance.XPSlider.value = GameManager.instance.playerXP;
         if (GameManager.instance.XPSlider.value >= GameManager.instance.XPSlider.maxValue)
         {
@@ -26,7 +28,6 @@ public class XPBar : MonoBehaviour
             GameManager.instance.skillPoints += 1;
             GameManager.instance.maxXP *= xpScaler;
             GameManager.instance.minXP = GameManager.instance.playerXP;
-            levelText.text = "LVL: " + GameManager.instance.playerLevel;
             GameManager.instance.XPSlider.minValue = GameManager.instance.playerXP;
             GameManager.instance.XPSlider.maxValue = GameManager.instance.maxXP;
         }                                           

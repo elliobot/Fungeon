@@ -65,21 +65,42 @@ public class GameManager : MonoBehaviour
 
     [Header("Save Settings")]
         public GameObject savedText;
+        public string saveDate = DateTime.Now.ToString();
+        public TMP_Text awayTimeText;
+        public GameObject awayTimeNotification;
+        public int awaytimeMins;
 
     float elapsed = 0;
 
     // Start is called before the first frame update
     void Start()
     {
+        DateTime dateNow = DateTime.Now;
         instance = this;
         LoadPlayer();
+        DateTime awayTime = Convert.ToDateTime(saveDate);
+        awaytimeMins = Convert.ToInt32(Math.Round( calculateAwayTime(dateNow, awayTime).TotalMinutes));
 
-        
+        if (awaytimeMins >= 1)
+        {
+            awayTimeNotification.SetActive(true);
+
+            awayTimeText.text = "You have been away for " + awaytimeMins + " minutes and earned " + (awaytimeMins * 60) * (skeletonCount * (jokePower * jokeMult)) + " laughs";
+            moneyTotal += (awaytimeMins * 60) * (skeletonCount * (jokePower * jokeMult));
+            playerXP += (awaytimeMins * 60) * (skeletonCount * (jokePower * jokeMult));
+            
+        }
+        else
+        {
+            awayTimeNotification.SetActive(false);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
+        
+
         if (moneyTotal >= 10000000)
         {
             moneyText.text = (Mathf.Round(moneyTotal * 100) / 100).ToString("G3");
@@ -116,6 +137,8 @@ public class GameManager : MonoBehaviour
     }
     public void SavePlayer()
     {
+
+
         SaveSystem.SavePlayer(this);
         StartCoroutine(ToggleSavedText(1));
     }
@@ -133,9 +156,6 @@ public class GameManager : MonoBehaviour
         maxXP =      data.maxXP;
         playerLevel =   data.playerLevel;
         skillPoints =   data.playerLevel;
-        skillCount =    data.skillCount;
-        offenceCount =  data.offenceCount;
-        cleanCount =    data.cleanCount;
         jokeSpeed =     data.jokeSpeed;
         autoclickUpgrade = data.autoclickUpgrade;
         click1 = data.click1;
@@ -143,6 +163,7 @@ public class GameManager : MonoBehaviour
         skel1 = data.skel1;
         skillTree = data.skillTree;
         offskillTree = data.offskillTree;
+        saveDate = data.saveDate;
         DeleteAllSkeletons();
 
         
@@ -245,5 +266,9 @@ public class GameManager : MonoBehaviour
         XPSlider.minValue = minXP;
         XPSlider.maxValue = maxXP;
         XPSlider.value = playerXP;
+    }
+    public TimeSpan calculateAwayTime(DateTime a, DateTime b)
+    {
+        return a - b;
     }
 }
